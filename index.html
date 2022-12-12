@@ -1,41 +1,132 @@
+<!--내가 여행가고 싶은 도시 이름을 리스트로 만들기-->
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 
 <head>
-  <title> WEB </title>
-  <meta charset=”utf-8”>
-  <script src="master.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <title>Welcome to GIT!!!</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 부트스트랩 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  <script src="js/index.js"></script>
+  <!-- 제이쿼리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 </head>
 
-<body style="background-color: white; color: black;">
-  <h1><a href="index.html">WEB</a></h1>
-  <div id="grid">
-    <ol>
-      <li><a href="1.html">HTML</a></li>
-      <li><a href="2.html">CSS</a></li>
-      <li><a href="3.html">JavaScript</a></li>
-    </ol>
+<body>
+  <h1 id="title">깃 (GIT) 사용법</h1>
+  <br><br>
+  <button type="button" class="btn btn-dark" onClick="dayHandler(this)">Dark</button>
+  <button type="button" class="btn btn-light" style="display:none;" onClick="nightHandler(this)">Light</button>
+  <button type="button" class="col btn btn-ultra-voilet" onClick="changeVoiletColorHandler(this)">배경색 바꾸기</button>
+  <br><br>
+  목차
+  <ul>
+    <li><a href="1.html" class="list">깃(GIT)이란 무엇인가?</a></li>
+    <li><a href="2.html" class="list" id="selected">다른사람이 올린 깃 가져오기(Repository Clone)</a></li>
+    <li><a href="3.html" class="list">내가 만든 깃 올리기 (Commit & Push)</a></li>
+    <li><a href="4.html" class="list">본격적으로 협업하기</a></li>
+  </ul>
+  <hr>
+  <br>
+  <h2>다른 사람이 올린 깃 가져오기</h2>
+  <br><br>
+  <dl>
+    <dt><h3>1. 컴퓨터에 Git 설치</h3></dt>
+    <br>
+    <dd>가장 먼져, 사용자의 컴퓨터에 Git을 설치한다.</dd>
+    <dd>https://git-scm.com/downloads 페이지에 접속 후, Git 설치파일을 다운로드 한다.</dd>
+    <dd>필자의 컴퓨터 운영체제는 Windows이므로, Windows Setup 파일을 다운로드 하였다.</dd>
+    <br><br>
+    <dd>
+      <table>
+        <tr>
+          <td><img src="images/install_git_1.jpg" alt="깃 설치파일 페이지"></td>
+          <td><img src="images/install_git_2.jpg" alt="깃 설치 프로그램 화면"></td>
+        </tr>
+          <td class="imgDesc"><hr>▶ 깃 설치파일 페이지 (git-scm.com/downloads)</td>
+          <td class="imgDesc"><hr>▶ 설치 화면, Next를 눌러 진행한다.</td>
+      </table>
+    </dd>
+    <br><br>
 
-    <div id="article">
-      <input id="night_day" type="button" value="night" onclick="nightDayHandler(this)">
-      <h2>WEB</h2>
-      <p>2017100884 김명진</p> <br>
-      <p>
-        The World Wide Web (WWW), commonly known as the Web, is an information system enabling documents and other web
-        resources to be accessed over the Internet.
-      </p>
-      <img
-        src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80"
-        alt="web image" width="20%">
-      <p>
-        Documents and downloadable media are made available to the network through web servers and can be accessed by
-        programs such as web browsers. Servers and resources on the World Wide Web are identified and located through
-        character strings called uniform resource locators (URLs).
-      </p>
-      <input type="button" value="night" onclick="nightDayHandler(this)">
-    </div>
-  </div>
+
+
+    <dt><h3>2. 서비스 가입</h3></dt>
+    <br>
+    <dd>먼져, 사용하고자 하는 깃 서비스 제공 사이트에 가입한다.</dd>
+    <dd>
+      <table>
+        <tr>
+          <td><img src="images/register_github.jpg" alt="깃허브 회원가입 이미지"></td>
+          <td><img src="images/register_gitlab.jpg" alt="깃 회원가입 이미지"></td>
+        </tr>
+          <td class="imgDesc"><hr>▶ 깃 허브 (Git Hub) 회원가입 페이지</td>
+          <td class="imgDesc"><hr>▶ 깃 랩 (Git Lab) 회원가입 페이지</td>
+      </table>
+    </dd>
+    <br><br>
+    <dt><h3>3. 프로젝트 주소 복사하기</h3></dt>
+    <br>
+      <dd>회원가입 후, 가져오고자 하는 프로젝트(Repositry) 페이지에 들어간다.</dd>
+      <dd>필자는 깃 허브(Git Hub) 페이지를 기준으로 설명하였다.</dd>
+      <br><br>
+      <dd>
+        <table>
+          <tr>
+            <td><img src="images/clone_repository_github.jpg" alt="깃허브 회원가입 이미지"></td>
+          </tr>
+            <td class="imgDesc"><hr>▶ 깃 허브 (Git Hub) 프로젝트 Repository 페이지</td>
+        </table>
+      </dd>
+      <br>
+      <dd>1. 오른쪽 상단에 있는 Clone(연두색 버튼)을 누른 후, 2. HTMl탭을 클릭 후, 3.버튼을 눌러 주소를 복사해준다.</dd>
+      <br><br>
+
+
+
+      <dt><h3>4. 마지막으로, 내 컴퓨터에 프로젝트 가져오기</h3></dt>
+      <br>
+        <dd>명령프롬포트(cmd)또는 터미널(Terminal) 실행 후, cd명령어를 이용하여 원하는 폴더로 이동한다.</dd>
+        <dd>필자는 Windows 운영체제의 명령프롬포트를 기준으로 설명하였다.</dd>
+        <br><br>
+        <dd>
+          <table>
+            <tr>
+              <td><img src="images/clone_git_1.jpg" alt="cmd 폴더 이동 후, 깃 클론 명령어 이미지"></td>
+              <td><img src="images/clone_git_2.jpg" alt="정상적으로 Clone이 완료되었다는 명령어 이미지"></td>
+            </tr>
+              <td class="imgDesc"><hr>▶ 폴더로 이동 후, Git Clone 명령어로 가져온다.</td>
+              <td class="imgDesc"><hr>▶ Clone이 정상적으로 완료되면, 다음과 같은 화면이 출력된다.</td>
+          </table>
+        </dd>
+        <br>
+        <dd>그 후, git clone '복사한 프로젝트 주소' 명령어를 이용하여 프로젝트를 가져온다.</dd>
+        <dd class="forExample">예시&gt; git clone https://github.com/gun21/myRepositry.git</dd>
+        <br>
+        <dd>Clone이 정상적으로 완료되면, 오른쪽과 같은 화면이 출력된다.</dd>
+        <br>
+        <br><br>
+
+
+
+        <dt><h3>5. 가져온 파일 확인</h3></dt>
+        <br>
+          <dd>명령프롬포트 혹은 운영체제 탐색기를 이용하여, 파일이 잘 가져와졌는지 확인한다.</dd>
+          <br><br>
+          <dd>
+            <table>
+              <tr>
+                <td><img src="images/clone_finished.jpg" alt="Windows 탐색기 이미지"></td>
+              </tr>
+                <td class="imgDesc"><hr>▶ Windows 탐색기에서 가져온 프로젝트를 확인한다.</td>
+            </table>
+          </dd>
+          <br><br><br>
+          <dd class="finished">모든 파일들이 잘 가져와졌다면, 축하합니다!</dd>
+          <br><br>
+  </dl>
 </body>
-
 </html>

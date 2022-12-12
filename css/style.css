@@ -1,0 +1,42 @@
+#title {
+  text-align: center;
+  color: red;
+}
+
+.list{
+  color: black;
+  text-decoration-line: none;
+}
+
+#selected {
+  color: blue;
+}
+
+img {
+  width: 100%;
+}
+
+.imgDesc {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.forExample {
+  color: green;
+  font-weight: bold;
+}
+
+.finished {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  font-stretch: ultra-expanded;
+}
+
+.btn-ultra-voilet {
+    background: #654ea3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+}
